@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NintyNineApps — small, delightful apps</title>
+<meta name="description" content="NintyNineApps builds small, focused mobile and web apps. Home of 67s — a number-pattern puzzle game." />
+<style>
+  :root {
+    --bg:        #0b0a1a;
+    --bg-soft:   #151230;
+    --panel:     #1b1740;
+    --line:      #2a2556;
+    --ink:       #f4f2ff;
+    --ink-soft:  #c9c4ee;
+    --muted:     #8a85b8;
+    --accent-1:  #ff6b6b;  /* coral */
+    --accent-2:  #f59e0b;  /* amber */
+    --accent-3:  #a855f7;  /* violet */
+    --accent-4:  #22d3ee;  /* cyan */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+
+  .page {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 40px 28px 56px;
+    background:
+      radial-gradient(1100px 600px at 110% -10%, rgba(168,85,247,0.35), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,0.22), transparent 55%),
+      radial-gradient(700px 500px at 50% 110%, rgba(245,158,11,0.18), transparent 55%);
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    box-shadow: 0 8px 20px -6px rgba(168,85,247,0.55);
+  }
+  .brand-name { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  .brand-tag  { font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+  .header nav { margin-left: auto; display: flex; gap: 4px; }
+  .nav-link {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 8px 13px;
+    border-radius: 9px;
+  }
+  .nav-link:hover { background: rgba(255,255,255,0.06); color: white; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(180deg, rgba(27,23,64,0.85), rgba(21,18,48,0.85));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 40px 36px 36px;
+    box-shadow: 0 20px 60px -30px rgba(168,85,247,0.55);
+    margin-bottom: 22px;
+    backdrop-filter: blur(8px);
+  }
+  .hero h1 {
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin: 0 0 14px;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  /* Values */
+  .values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .value {
+    background: rgba(11,10,26,0.55);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+  .value h3 { font-size: 13.5px; font-weight: 700; margin: 0; color: var(--ink); }
+  .value p  { font-size: 12.5px; color: var(--muted); margin: 4px 0 0; line-height: 1.45; }
+
+  @media (max-width: 640px) {
+    .values { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 34px; }
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin: 32px 0 14px;
+  }
+
+  /* Product card */
+  .product {
+    background: linear-gradient(180deg, rgba(27,23,64,0.9), rgba(21,18,48,0.9));
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -30px rgba(245,158,11,0.3);
+    backdrop-filter: blur(8px);
+  }
+
+  .product-feature {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1024 / 500;
+    object-fit: cover;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .product-body {
+    padding: 28px 32px 26px;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .product-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    box-shadow: 0 10px 24px -10px rgba(0,0,0,0.6);
+  }
+  .product h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+  }
+  .product .sub { color: var(--muted); font-size: 13.5px; margin-bottom: 14px; }
+  .product p { margin: 0 0 14px; color: var(--ink-soft); font-size: 14.5px; }
+  .product ul { margin: 0 0 18px; padding-left: 18px; color: var(--ink-soft); font-size: 13.5px; }
+  .product ul li { margin-bottom: 4px; }
+
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    transition: transform 0.15s, filter 0.15s;
+  }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+    color: white;
+    box-shadow: 0 10px 22px -8px rgba(255,107,107,0.55);
+  }
+  .btn.primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn.ghost {
+    background: rgba(255,255,255,0.04);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .btn.ghost:hover { background: rgba(255,255,255,0.08); }
+
+  /* Screenshot gallery */
+  .screens {
+    margin: 0;
+    padding: 8px 32px 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .screens img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 20px -14px rgba(0,0,0,0.7);
+    transition: transform 0.18s;
+    display: block;
+  }
+  .screens img:hover { transform: translateY(-3px) scale(1.02); }
+
+  @media (max-width: 820px) {
+    .screens { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .product-body { grid-template-columns: 72px 1fr; }
+    .product-icon { width: 72px; height: 72px; border-radius: 18px; }
+    .product h2 { font-size: 24px; }
+    .screens { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: white; text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="header">
+      <div class="brand">
+        <div class="logo">99</div>
+        <div>
+          <div class="brand-name">NintyNineApps</div>
+          <div class="brand-tag">small, focused apps</div>
+        </div>
+      </div>
+      <nav>
+        <a class="nav-link" href="#products">Products</a>
+        <a class="nav-link" href="privacy.html">Privacy</a>
+        <a class="nav-link" href="mailto:hello@nintynineapps.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Small, focused apps <span class="accent">that respect your time.</span></h1>
+      <p>
+        NintyNineApps builds lightweight mobile and web apps — one idea at a time,
+        done well. No bloat, no dark patterns, no endless onboarding. Just tools
+        and games that do their job and get out of the way.
+      </p>
+
+      <div class="values">
+        <div class="value">
+          <h3>Fast &amp; focused</h3>
+          <p>Each app solves one thing well. If it doesn't need to be there, it isn't.</p>
+        </div>
+        <div class="value">
+          <h3>Privacy-first</h3>
+          <p>We collect the minimum needed to run the app — and say so plainly.</p>
+        </div>
+        <div class="value">
+          <h3>Handcrafted</h3>
+          <p>Built by a small team that actually uses the apps it ships.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-label" id="products">Featured app</div>
+
+    <section class="product">
+      <img class="product-feature" src="assets/67s-feature.png" alt="67s — find hidden number patterns" />
+
+      <div class="product-body">
+        <img class="product-icon" src="assets/67s-icon.png" alt="67s app icon" />
+        <div>
+          <h2>67s — number pattern puzzles</h2>
+          <div class="sub">A brain puzzle game for quick, satisfying mental workouts.</div>
+          <p>
+            Swipe across a grid to uncover hidden number sequences — arithmetic
+            progressions, Fibonacci, primes, perfect squares, and more — before the
+            clock runs out.
+          </p>
+          <ul>
+            <li>8+ mathematical pattern types to discover</li>
+            <li>Progressive difficulty from 4×4 to 5×5 grids</li>
+            <li>Global leaderboards via Google Play Games</li>
+            <li>No sign-up required — just tap and play</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.the67s.game">Get it on Google Play</a>
+            <a class="btn ghost" href="privacy.html">Privacy notice</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="screens">
+        <img src="assets/67s-shot-3.png" alt="67s home screen" />
+        <img src="assets/67s-shot-1.png" alt="67s gameplay" />
+        <img src="assets/67s-shot-2.png" alt="67s pattern types" />
+        <img src="assets/67s-shot-4.png" alt="67s round results" />
+        <img src="assets/67s-shot-5.png" alt="67s progression" />
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year">2026</span> NintyNineApps. All rights reserved.</div>
+      <div>
+        <a href="privacy.html">Privacy</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:hello@nintynineapps.com">hello@nintynineapps.com</a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
