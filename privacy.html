@@ -7,15 +7,16 @@
 <meta name="description" content="Privacy notice for NintyNineApps and the 67s game." />
 <style>
   :root {
-    --bg:        #0b0a1a;
-    --panel:     #1b1740;
-    --line:      #2a2556;
-    --ink:       #f4f2ff;
-    --ink-soft:  #c9c4ee;
-    --muted:     #8a85b8;
-    --accent-1:  #ff6b6b;
-    --accent-2:  #f59e0b;
-    --accent-3:  #a855f7;
+    --bg:        #fbf7f2;
+    --panel:     #ffffff;
+    --panel-soft:#fbf8f3;
+    --line:      #ebe4d9;
+    --ink:       #3d3744;
+    --ink-soft:  #5c5566;
+    --muted:     #a19bab;
+    --accent-1:  #e89888;
+    --accent-2:  #d4a574;
+    --accent-3:  #a9a0cc;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -26,16 +27,16 @@
     -webkit-font-smoothing: antialiased;
     line-height: 1.65;
   }
-  a { color: var(--accent-2); }
-  a:hover { color: #fbbf24; }
+  a { color: #b57a5f; }
+  a:hover { color: #8a5540; }
 
   .page {
     max-width: 780px;
     margin: 0 auto;
     padding: 40px 28px 56px;
     background:
-      radial-gradient(900px 500px at 110% -10%, rgba(168,85,247,0.28), transparent 60%),
-      radial-gradient(700px 400px at -10% 10%, rgba(255,107,107,0.15), transparent 55%);
+      radial-gradient(900px 500px at 110% -10%, rgba(169,160,204,0.2), transparent 60%),
+      radial-gradient(700px 400px at -10% 10%, rgba(232,152,136,0.15), transparent 55%);
     min-height: 100vh;
   }
 
@@ -56,7 +57,7 @@
     justify-content: center;
     font-weight: 900;
     font-size: 15px;
-    box-shadow: 0 6px 14px -4px rgba(168,85,247,0.5);
+    box-shadow: 0 6px 14px -4px rgba(169,160,204,0.5);
   }
   .brand { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
   .back {
@@ -67,9 +68,9 @@
     padding: 7px 13px;
     border: 1px solid var(--line);
     border-radius: 9px;
-    background: rgba(255,255,255,0.04);
+    background: var(--panel);
   }
-  .back:hover { background: rgba(255,255,255,0.08); color: white; }
+  .back:hover { background: var(--panel-soft); color: var(--ink); }
 
   h1 {
     font-size: 34px;
@@ -93,12 +94,11 @@
   ul li { margin-bottom: 5px; }
 
   .card {
-    background: linear-gradient(180deg, rgba(27,23,64,0.9), rgba(21,18,48,0.9));
+    background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 18px;
     padding: 30px 32px;
-    box-shadow: 0 20px 60px -30px rgba(168,85,247,0.45);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 50px -30px rgba(169,160,204,0.35);
   }
 
   footer {
@@ -108,7 +108,7 @@
     text-align: center;
   }
   footer a { color: var(--ink-soft); text-decoration: none; }
-  footer a:hover { color: white; }
+  footer a:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -195,7 +195,7 @@
       <h2>Contact</h2>
       <p>
         Questions or requests? Email us at
-        <a href="mailto:hello@nintynineapps.com">hello@nintynineapps.com</a>.
+        <a href="mailto:nintynineapps@gmail.com">nintynineapps@gmail.com</a>.
       </p>
     </div>
 
