@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>67s for iPhone — Privacy · NintyNineApps</title>
+<meta name="description" content="Privacy notice for 67s on iPhone. The app collects no data, works offline, and contains no ads, analytics, or third-party SDKs." />
+<style>
+  :root {
+    --bg:        #fbf7f2;
+    --panel:     #ffffff;
+    --panel-soft:#fbf8f3;
+    --line:      #ebe4d9;
+    --ink:       #3d3744;
+    --ink-soft:  #5c5566;
+    --muted:     #a19bab;
+    --accent-1:  #e89888;
+    --accent-2:  #d4a574;
+    --accent-3:  #a9a0cc;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+  }
+  a { color: #b57a5f; }
+  a:hover { color: #8a5540; }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 28px 56px;
+    background:
+      radial-gradient(900px 500px at 110% -10%, rgba(169,160,204,0.2), transparent 60%),
+      radial-gradient(700px 400px at -10% 10%, rgba(232,152,136,0.15), transparent 55%);
+    min-height: 100vh;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 15px;
+    box-shadow: 0 6px 14px -4px rgba(169,160,204,0.5);
+  }
+  .brand { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+  .back {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--panel);
+  }
+  .back:hover { background: var(--panel-soft); color: var(--ink); }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0 0 6px;
+    background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .effective { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 28px 0 8px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  p, ul { color: var(--ink-soft); font-size: 15px; }
+  strong { color: var(--ink); }
+  ul li { margin-bottom: 5px; }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 32px;
+    box-shadow: 0 20px 50px -30px rgba(169,160,204,0.35);
+  }
+
+  footer {
+    margin-top: 28px;
+    font-size: 12.5px;
+    color: var(--muted);
+    text-align: center;
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <div class="logo">99</div>
+      <div class="brand">NintyNineApps</div>
+      <a class="back" href="index.html">← Back</a>
+    </div>
+
+    <div class="card">
+      <h1>67s for iPhone — Privacy</h1>
+      <div class="effective">Last updated: April 26, 2026</div>
+
+      <p>
+        This app does not collect, transmit, or share any user data. Game
+        progress (scores, current round, settings, hint counts) is stored only
+        on your device and never leaves it. The app does not require an
+        internet connection.
+      </p>
+
+      <h2>What we don't do</h2>
+      <ul>
+        <li>No accounts.</li>
+        <li>No sign-in.</li>
+        <li>No ads.</li>
+        <li>No analytics.</li>
+        <li>No crash reporting.</li>
+        <li>No third-party SDKs that collect data.</li>
+      </ul>
+
+      <h2>External links</h2>
+      <p>
+        The App Store badge and "Privacy notice" link open Safari and are
+        governed by Apple's standard policies.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions? Email us at
+        <a href="mailto:nintynineapps@gmail.com">nintynineapps@gmail.com</a>.
+      </p>
+    </div>
+
+    <footer>
+      © <span id="year">2026</span> NintyNineApps · <a href="index.html">Home</a>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
